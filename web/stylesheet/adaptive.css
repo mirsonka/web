@@ -1,0 +1,17 @@
+/* ------ MOBILE 420 ------*/
+@media (max-width: 420px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 4vw 5vw 0; 
+    gap: 8vw;
+  }
+}
+
+/* ------ SMALL MOBILE 360 ------*/
+@media (max-width: 360px) {
+  .container {
+    padding: 4vh 0;
+  }
+}

@@ -1,0 +1,229 @@
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+body{
+  margin: 0;
+  background-color: #F5BF60;
+}
+
+
+
+.screen1{
+  width: 100vw;
+  height: 33.8453125vw;
+  overflow: visible;
+  position: relative;
+  padding: 0;
+  z-index: 2;
+}
+
+
+.ticker{
+  width: 100vw;
+  height: 4.0625vw;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.ticker__track{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.ticker__content{
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-family: Pangolin, sans-serif;
+  font-size: 4.53125vw;
+  line-height: 1;
+  padding-right: 1.2vw;
+}
+
+.c1{ color: #9A6EB2; }
+.c2{ color: #F5BF60; }
+
+.space{
+  display: inline-block;
+  width: 0.6vw;
+}
+
+.paw-sep{
+  display: inline-block;
+  width: 3vw;
+  height: auto;
+  margin: 0 0.9vw;
+  vertical-align: middle;
+}
+
+
+
+.paws{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.paw{
+  position: absolute;
+  width: 6vw;
+  height: auto;
+  opacity: 0.95;
+}
+
+ .p1{ left: -1.439vw; top: 3.849vw; }
+ .p2{ left: 4.365vw;  top: 22.977vw; }
+ .p3{ left: 19.660vw; top: 0.981vw; }
+.p4{ left: 36.316vw; top: 27.130vw; }
+.p5{ left: 42.380vw; top: -1.017vw; }
+ .p6{ left: 61.338vw; top: 15.658vw; }
+.p7{ left: 85.481vw; top: 5.137vw; }
+ .p8{ left: 87.502vw; top: 25.629vw; }
+
+
+
+.murr{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.letter{
+  position: absolute;
+  height: 25.2vw; 
+  width: auto;
+  display: block;
+}
+
+
+.l1{ left: 9.06vw;  top: 3.18vw; }
+.l2{ left: 28.84vw; top: 3.56vw; }
+.l3{ left: 54.33vw; top: 3.59vw; }
+ .l4{ left: 71.32vw; top: 1.56vw; }
+
+
+
+.screen2{
+  width: 100vw;
+  height: 49.609375vw;
+  display: flex;
+  position: relative;
+  overflow: visible;
+}
+
+.box-black{
+  width: 74.6875vw;
+  height: 100%;
+  background: #000;
+  position: relative;
+  overflow: visible;
+  z-index: 2; 
+}
+.box-pattern{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25.3125vw;
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.pattern{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+/* тут паттерн: 1 */
+.ptn1{ opacity: 1; }
+
+/* тут паттерн: 2 */
+.ptn2{ opacity: 0; }
+
+.box-pattern:hover .ptn1{ opacity: 0; }
+.box-pattern:hover .ptn2{ opacity: 1; }
+
+
+
+
+.star{
+  position: absolute;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  z-index: 2;
+  width: 22.78%;
+}
+
+
+.s1{
+  left: -6.88%;
+  top: 58.89%;
+  width: 20.5%;
+}
+
+
+.s2{
+  left: 1.23%;
+  top: .70%;
+}
+
+
+.s3{
+  left: 72.69%;
+  top: 6.10%;
+}
+
+
+.s4{
+  left: 80.5%;   
+  top: 65.87%;
+  width: 19.2%;  
+}
+
+
+
+.cats{
+  position: absolute;
+  width: 63.5%;
+  height: auto;
+
+  left: 18.27%;
+  bottom: 0;          /* ← ВАЖНО */
+  
+  z-index: 4;
+  display: block;
+}
+
+
+
+.discoball{
+  position: absolute;
+  width: 28%;
+  left: 50%;
+  top: 190px;             
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: block;
+}

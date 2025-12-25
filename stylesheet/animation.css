@@ -1,0 +1,124 @@
+
+.paw {
+  animation-name: pawFade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.p1 { animation-duration: 3.8s; animation-delay: 0s; }
+.p2 { animation-duration: 4.6s; animation-delay: 0.8s; }
+.p3 { animation-duration: 5.2s; animation-delay: 1.4s; }
+
+.p4 { animation-duration: 4.1s; animation-delay: 0.4s; }
+.p5 { animation-duration: 5.0s; animation-delay: 1.1s; }
+.p6 { animation-duration: 3.6s; animation-delay: 0.9s; }
+
+.p7 { animation-duration: 4.8s; animation-delay: 0.6s; }
+.p8 { animation-duration: 5.4s; animation-delay: 1.7s; }
+
+@keyframes pawFade {
+  0%   { opacity: 0.08; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 0.08; }
+}
+
+
+.letter {
+  transform-origin: center center;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+
+.l1 {
+  animation-name: rotateM;
+  animation-duration: 4.8s;
+}
+
+@keyframes rotateM {
+  0%   { transform: rotate(12.43deg); }
+  50%  { transform: rotate(-8.64deg); }
+  100% { transform: rotate(12.43deg); }
+}
+
+
+.l2 {
+  animation-name: rotateU;
+  animation-duration: 4.2s;
+}
+
+@keyframes rotateU {
+  0%   { transform: rotate(-3.84deg); }
+  50%  { transform: rotate(-27.42deg); }
+  100% { transform: rotate(-3.84deg); }
+}
+
+
+.l3 {
+  animation-name: rotateR1;
+  animation-duration: 4.6s;
+}
+
+@keyframes rotateR1 {
+  0%   { transform: rotate(-9.77deg); }
+  50%  { transform: rotate(8.35deg); }
+  100% { transform: rotate(-9.77deg); }
+}
+
+
+.l4 {
+  animation-name: rotateR2;
+  animation-duration: 4.8s;
+}
+
+@keyframes rotateR2 {
+  0%   { transform: rotate(-24.69deg); }
+  50%  { transform: rotate(-0.15deg); }
+  100% { transform: rotate(-24.69deg); }
+}
+
+
+
+.ticker__track{
+  animation: tickerMove 8s linear infinite; 
+}
+
+@keyframes tickerMove{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes star-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.star{
+  animation: star-rotate 16s linear infinite;
+  transform-origin: center center;
+}
+
+
+.s1{
+  animation-duration: 18s;
+}
+
+.s2{
+  animation-duration: 14s;
+  animation-direction: reverse;
+}
+
+.s3{
+  animation-duration: 20s;
+}
+
+.s4{
+  animation-duration: 15s;
+  animation-direction: reverse;
+}

@@ -1,3 +1,5 @@
+/* ===== RESET / BASE ===== */
+
 *{
   box-sizing: border-box;
 }
@@ -14,15 +16,19 @@ body{
 
 
 
+/* ===== SCREEN 1 ===== */
+
 .screen1{
   width: 100vw;
   height: 33.8453125vw;
-  overflow: visible;
   position: relative;
-  padding: 0;
+  overflow: visible;
   z-index: 2;
 }
 
+
+
+/* ===== TICKER ===== */
 
 .ticker{
   width: 100vw;
@@ -39,36 +45,41 @@ body{
   align-items: center;
   width: max-content;
   will-change: transform;
+  animation: tickerMove 8s linear infinite;
 }
 
 .ticker__content{
   display: inline-flex;
   align-items: center;
-  flex: 0 0 auto;
   white-space: nowrap;
+
+  flex: 0 0 auto;      /* ✅ ключевое */
+  padding-right: 0;    /* ✅ убрать, чтобы не было разрыва */
+
   font-family: Pangolin, sans-serif;
   font-size: 4.53125vw;
   line-height: 1;
-  padding-right: 1.2vw;
 }
+
+@keyframes tickerMove{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+
 
 .c1{ color: #9A6EB2; }
 .c2{ color: #F5BF60; }
 
-.space{
-  display: inline-block;
-  width: 0.6vw;
-}
+.space{ width: .6vw; display: inline-block; }
 
 .paw-sep{
-  display: inline-block;
   width: 3vw;
-  height: auto;
-  margin: 0 0.9vw;
-  vertical-align: middle;
+  margin: 0 .9vw;
 }
 
 
+
+/* ===== PAWS ===== */
 
 .paws{
   position: absolute;
@@ -80,20 +91,28 @@ body{
 .paw{
   position: absolute;
   width: 6vw;
-  height: auto;
-  opacity: 0.95;
+  opacity: .95;
+  animation: pawFade ease-in-out infinite;
 }
 
- .p1{ left: -1.439vw; top: 3.849vw; }
- .p2{ left: 4.365vw;  top: 22.977vw; }
- .p3{ left: 19.660vw; top: 0.981vw; }
-.p4{ left: 36.316vw; top: 27.130vw; }
-.p5{ left: 42.380vw; top: -1.017vw; }
- .p6{ left: 61.338vw; top: 15.658vw; }
-.p7{ left: 85.481vw; top: 5.137vw; }
- .p8{ left: 87.502vw; top: 25.629vw; }
+@keyframes pawFade{
+  0%{ opacity: .08; }
+  50%{ opacity: .9; }
+  100%{ opacity: .08; }
+}
+
+.p1{ left:-1.439vw; top:3.849vw; animation: pawFade 3.8s infinite; }
+.p2{ left:4.365vw; top:22.977vw; animation: pawFade 4.6s .8s infinite; }
+.p3{ left:19.66vw; top:.981vw; animation: pawFade 5.2s 1.4s infinite; }
+.p4{ left:36.316vw; top:27.13vw; animation: pawFade 4.1s .4s infinite; }
+.p5{ left:42.38vw; top:-1.017vw; animation: pawFade 5s 1.1s infinite; }
+.p6{ left:61.338vw; top:15.658vw; animation: pawFade 3.6s .9s infinite; }
+.p7{ left:85.481vw; top:5.137vw; animation: pawFade 4.8s .6s infinite; }
+.p8{ left:87.502vw; top:25.629vw; animation: pawFade 5.4s 1.7s infinite; }
 
 
+
+/* ===== MURR LETTERS ===== */
 
 .murr{
   position: relative;
@@ -104,39 +123,190 @@ body{
 
 .letter{
   position: absolute;
-  height: 25.2vw; 
-  width: auto;
-  display: block;
+  height: 25.2vw;
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.l1{ left:9.06vw; top:3.18vw; animation: rotateM 4.2s infinite; }
+.l2{ left:28.84vw; top:3.56vw; animation: rotateU 3.8s infinite; }
+.l3{ left:54.33vw; top:3.59vw; animation: rotateR1 4s infinite; }
+.l4{ left:71.32vw; top:1.56vw; animation: rotateR2 4.2s infinite; }
+
+@keyframes rotateM{
+  0%{ transform: rotate(12deg); }
+  50%{ transform: rotate(-9deg); }
+  100%{ transform: rotate(12deg); }
+}
+
+@keyframes rotateU{
+  0%{ transform: rotate(-4deg); }
+  50%{ transform: rotate(-28deg); }
+  100%{ transform: rotate(-4deg); }
+}
+
+@keyframes rotateR1{
+  0%{ transform: rotate(-10deg); }
+  50%{ transform: rotate(8deg); }
+  100%{ transform: rotate(-10deg); }
+}
+
+@keyframes rotateR2{
+  0%{ transform: rotate(-25deg); }
+  50%{ transform: rotate(0deg); }
+  100%{ transform: rotate(-25deg); }
 }
 
 
-.l1{ left: 9.06vw;  top: 3.18vw; }
-.l2{ left: 28.84vw; top: 3.56vw; }
-.l3{ left: 54.33vw; top: 3.59vw; }
- .l4{ left: 71.32vw; top: 1.56vw; }
 
-
+/* ===== SCREEN 2 ===== */
 
 .screen2{
   width: 100vw;
   height: 49.609375vw;
   display: flex;
   position: relative;
-  overflow: visible;
 }
+
+
+
+/* ===== BLACK BLOCK ===== */
 
 .box-black{
   width: 74.6875vw;
-  height: 100%;
   background: #000;
   position: relative;
-  overflow: visible;
-  z-index: 2; 
+  z-index: 2;
 }
+
+
+
+/* ===== CATS ===== */
+
+.cats{
+  position: absolute;
+  width: 63.5%;
+  left: 18.27%;
+  bottom: 0;
+  z-index: 4;
+}
+
+
+
+/* ===== DISCO BALL ===== */
+
+.discoball{
+  position: absolute;
+  width: 28%;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+
+
+/* =========================
+   STARS (layout + hover)
+   ========================= */
+
+.star-wrap{
+  position: absolute;
+  z-index: 2;
+
+  /* чтобы hover работал (иначе 0x0) */
+  aspect-ratio: 217.76 / 211.3;
+
+  pointer-events: auto;
+}
+
+/* размеры и позиции */
+.s1{
+  left: -6.88%;
+  top: 58.89%;
+  width: 20.5%;
+}
+
+.s2{
+  left: 1.23%;
+  top: .70%;
+  width: 22.78%;
+}
+
+.s3{
+  left: 72.69%;
+  top: 6.10%;
+  width: 22.78%;
+}
+
+.s4{
+  left: 80.5%;
+  top: 65.87%;
+  width: 19.2%;
+}
+
+/* сами svg */
+.star{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.star-base{ opacity: 1; }
+.star-hover{ opacity: 0; }
+
+/* hover-переключение цвета */
+.star-wrap:hover .star-base{ opacity: 0; }
+.star-wrap:hover .star-hover{ opacity: 1; }
+
+
+
+/* positions */
+
+.s1{
+  left:-6.88%;
+  top:58.89%;
+  width:20.5%;
+  animation-duration:18s;
+}
+
+.s2{
+  left:1.23%;
+  top:.7%;
+  width:22.78%;
+  animation-duration:14s;
+  animation-direction: reverse;
+}
+
+.s3{
+  left:72.69%;
+  top:6.1%;
+  width:22.78%;
+  animation-duration:20s;
+}
+
+.s4{
+  left:80.5%;
+  top:65.87%;
+  width:19.2%;
+  animation-duration:15s;
+  animation-direction: reverse;
+}
+
+
+
+/* ===== RIGHT PATTERN ===== */
+
 .box-pattern{
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   width: 25.3125vw;
   height: 100%;
   overflow: hidden;
@@ -149,81 +319,393 @@ body{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-
-  opacity: 0;
-  transition: opacity 200ms ease;
+  transition: opacity .2s ease;
 }
 
-/* тут паттерн: 1 */
 .ptn1{ opacity: 1; }
-
-/* тут паттерн: 2 */
 .ptn2{ opacity: 0; }
 
 .box-pattern:hover .ptn1{ opacity: 0; }
 .box-pattern:hover .ptn2{ opacity: 1; }
 
+/* ===== RESET / BASE ===== */
 
+*{
+  box-sizing: border-box;
+}
 
+html, body{
+  overflow-x: hidden;
+  overflow-y: visible;
+}
 
-.star{
-  position: absolute;
-  height: auto;
-  display: block;
-  pointer-events: none;
-  z-index: 2;
-  width: 22.78%;
+body{
+  margin: 0;
+  background-color: #F5BF60;
 }
 
 
+
+/* ===== SCREEN 1 ===== */
+
+.screen1{
+  width: 100vw;
+  height: 33.8453125vw;
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+}
+
+
+
+/* ===== TICKER ===== */
+
+.ticker{
+  width: 100vw;
+  height: 4.0625vw;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.ticker__track{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: tickerMove 8s linear infinite;
+}
+
+.ticker__content{
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: Pangolin, sans-serif;
+  font-size: 4.53125vw;
+  line-height: 1;
+  padding-right: 1.2vw;
+}
+
+@keyframes tickerMove{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+
+.c1{ color: #9A6EB2; }
+.c2{ color: #F5BF60; }
+
+.space{ width: .6vw; display: inline-block; }
+
+.paw-sep{
+  width: 3vw;
+  margin: 0 .9vw;
+}
+
+
+
+/* ===== PAWS ===== */
+
+.paws{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.paw{
+  position: absolute;
+  width: 6vw;
+  opacity: .95;
+  animation: pawFade ease-in-out infinite;
+}
+
+@keyframes pawFade{
+  0%{ opacity: .08; }
+  50%{ opacity: .9; }
+  100%{ opacity: .08; }
+}
+
+.p1{ left:-1.439vw; top:3.849vw; animation: pawFade 3.8s infinite; }
+.p2{ left:4.365vw; top:22.977vw; animation: pawFade 4.6s .8s infinite; }
+.p3{ left:19.66vw; top:.981vw; animation: pawFade 5.2s 1.4s infinite; }
+.p4{ left:36.316vw; top:27.13vw; animation: pawFade 4.1s .4s infinite; }
+.p5{ left:42.38vw; top:-1.017vw; animation: pawFade 5s 1.1s infinite; }
+.p6{ left:61.338vw; top:15.658vw; animation: pawFade 3.6s .9s infinite; }
+.p7{ left:85.481vw; top:5.137vw; animation: pawFade 4.8s .6s infinite; }
+.p8{ left:87.502vw; top:25.629vw; animation: pawFade 5.4s 1.7s infinite; }
+
+
+
+/* ===== MURR LETTERS ===== */
+
+.murr{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.letter{
+  position: absolute;
+  height: 25.2vw;
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.l1{ left:9.06vw; top:3.18vw; animation: rotateM 4.2s infinite; }
+.l2{ left:28.84vw; top:3.56vw; animation: rotateU 3.8s infinite; }
+.l3{ left:54.33vw; top:3.59vw; animation: rotateR1 4s infinite; }
+.l4{ left:71.32vw; top:1.56vw; animation: rotateR2 4.2s infinite; }
+
+@keyframes rotateM{
+  0%{ transform: rotate(12deg); }
+  50%{ transform: rotate(-9deg); }
+  100%{ transform: rotate(12deg); }
+}
+
+@keyframes rotateU{
+  0%{ transform: rotate(-4deg); }
+  50%{ transform: rotate(-28deg); }
+  100%{ transform: rotate(-4deg); }
+}
+
+@keyframes rotateR1{
+  0%{ transform: rotate(-10deg); }
+  50%{ transform: rotate(8deg); }
+  100%{ transform: rotate(-10deg); }
+}
+
+@keyframes rotateR2{
+  0%{ transform: rotate(-25deg); }
+  50%{ transform: rotate(0deg); }
+  100%{ transform: rotate(-25deg); }
+}
+
+
+
+/* ===== SCREEN 2 ===== */
+
+.screen2{
+  width: 100vw;
+  height: 49.609375vw;
+  display: flex;
+  position: relative;
+}
+
+
+
+/* ===== BLACK BLOCK ===== */
+
+.box-black{
+  width: 74.6875vw;
+  background: #000;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* ===== CATS ===== */
+
+.cats{
+  position: absolute;
+  width: 63.5%;
+  left: 18.27%;
+  bottom: 0;
+  z-index: 4;
+}
+
+
+
+/* ===== DISCO BALL ===== */
+
+.discoball{
+  position: absolute;
+  width: 28%;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+
+
+/* =========================
+   STARS (layout + hover)
+   ========================= */
+
+.star-wrap{
+  position: absolute;
+  z-index: 2;
+
+  /* чтобы hover работал (иначе 0x0) */
+  aspect-ratio: 217.76 / 211.3;
+
+  pointer-events: auto;
+}
+
+/* размеры и позиции */
 .s1{
   left: -6.88%;
   top: 58.89%;
   width: 20.5%;
 }
 
-
 .s2{
   left: 1.23%;
   top: .70%;
+  width: 22.78%;
 }
-
 
 .s3{
   left: 72.69%;
   top: 6.10%;
+  width: 22.78%;
 }
-
 
 .s4{
-  left: 80.5%;   
+  left: 80.5%;
   top: 65.87%;
-  width: 19.2%;  
+  width: 19.2%;
+}
+
+/* сами svg */
+.star{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.star-base{ opacity: 1; }
+.star-hover{ opacity: 0; }
+
+/* hover-переключение цвета */
+.star-wrap:hover .star-base{ opacity: 0; }
+.star-wrap:hover .star-hover{ opacity: 1; }
+
+
+
+/* positions */
+
+.s1{
+  left:-6.88%;
+  top:58.89%;
+  width:20.5%;
+  animation-duration:18s;
+}
+
+.s2{
+  left:1.23%;
+  top:.7%;
+  width:22.78%;
+  animation-duration:14s;
+  animation-direction: reverse;
+}
+
+.s3{
+  left:72.69%;
+  top:6.1%;
+  width:22.78%;
+  animation-duration:20s;
+}
+
+.s4{
+  left:80.5%;
+  top:65.87%;
+  width:19.2%;
+  animation-duration:15s;
+  animation-direction: reverse;
 }
 
 
 
-.cats{
+/* ===== RIGHT PATTERN ===== */
+
+.box-pattern{
   position: absolute;
-  width: 63.5%;
+  right: 0;
+  top: 0;
+  width: 25.3125vw;
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.pattern{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .2s ease;
+}
+
+.ptn1{ opacity: 1; }
+.ptn2{ opacity: 0; }
+
+.box-pattern:hover .ptn1{ opacity: 0; }
+.box-pattern:hover .ptn2{ opacity: 1; }
+
+/* =========================
+   PAW STRIP
+   ========================= */
+
+/* =========================
+   PAW LINE
+   ========================= */
+
+/* =========================
+   PAW LINE
+   ========================= */
+
+.pawline{
+  width: 100vw;
+  background: #F5BF60;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+}
+
+.pawline__inner{
+  width: 100%;
+  height: clamp(110px, 12.48vw, 160px);
+  background: #9A6EB2;
+  border: 0.35vw solid #fff;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3vw;
+  padding: 0vw;
+}
+
+.paw-icon{
+  width: clamp(60px, 7vw, 100px);
   height: auto;
-
-  left: 18.27%;
-  bottom: 0;          /* ← ВАЖНО */
-  
-  z-index: 4;
-  display: block;
 }
 
+.paw-swap{
+  position: relative;
+  width: clamp(60px, 7vw, 100px);
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
 
-
-.discoball{
+.paw-layer{
   position: absolute;
-  width: 28%;
-  left: 50%;
-  top: 190px;             
-  transform: translate(-50%, -50%);
-  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
 }
+
+
+
+

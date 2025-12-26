@@ -1,3 +1,6 @@
+/* =========================
+   ЛАПКИ — появление / исчезновение
+   ========================= */
 
 .paw {
   animation-name: pawFade;
@@ -24,6 +27,10 @@
 }
 
 
+/* =========================
+   MURR — вращение букв
+   ========================= */
+
 .letter {
   transform-origin: center center;
   animation-timing-function: ease-in-out;
@@ -31,10 +38,10 @@
   animation-fill-mode: both;
 }
 
-
+/* M */
 .l1 {
   animation-name: rotateM;
-  animation-duration: 4.8s;
+  animation-duration: 3.6s; /* ускорили */
 }
 
 @keyframes rotateM {
@@ -43,10 +50,10 @@
   100% { transform: rotate(12.43deg); }
 }
 
-
+/* U */
 .l2 {
   animation-name: rotateU;
-  animation-duration: 4.2s;
+  animation-duration: 3.2s;
 }
 
 @keyframes rotateU {
@@ -55,10 +62,10 @@
   100% { transform: rotate(-3.84deg); }
 }
 
-
+/* R */
 .l3 {
   animation-name: rotateR1;
-  animation-duration: 4.6s;
+  animation-duration: 3.4s;
 }
 
 @keyframes rotateR1 {
@@ -67,10 +74,10 @@
   100% { transform: rotate(-9.77deg); }
 }
 
-
+/* R */
 .l4 {
   animation-name: rotateR2;
-  animation-duration: 4.8s;
+  animation-duration: 3.6s;
 }
 
 @keyframes rotateR2 {
@@ -80,45 +87,78 @@
 }
 
 
+/* =========================
+   БЕГУЩАЯ СТРОКА
+   ========================= */
 
-.ticker__track{
-  animation: tickerMove 8s linear infinite; 
+.ticker__track {
+  animation: tickerMove 8s linear infinite;
 }
 
-@keyframes tickerMove{
+@keyframes tickerMove {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes star-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* =========================
+   ЗВЁЗДОЧКИ — вращение
+   ========================= */
+
+@keyframes starRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-.star{
-  animation: star-rotate 16s linear infinite;
-  transform-origin: center center;
+.star-wrap {
+  animation-name: starRotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
 }
 
+/* индивидуальные скорости */
+.s1 { animation-duration: 18s; }
+.s2 { animation-duration: 14s; animation-direction: reverse; }
+.s3 { animation-duration: 20s; }
+.s4 { animation-duration: 15s; animation-direction: reverse; }
 
-.s1{
-  animation-duration: 18s;
+/* плавная смена цвета */
+.paw-white{ opacity: 1; }
+.paw-yellow{ opacity: 0; }
+
+.paw-yellow{
+  animation: pawColor 4s ease-in-out infinite;
+}
+.paw-white{
+  animation: pawColorReverse 4s ease-in-out infinite;
 }
 
-.s2{
-  animation-duration: 14s;
-  animation-direction: reverse;
+@keyframes pawColor{
+  0%, 45%   { opacity: 0; }
+  55%, 100% { opacity: 1; }
 }
 
-.s3{
-  animation-duration: 20s;
+@keyframes pawColorReverse{
+  0%, 45%   { opacity: 1; }
+  55%, 100% { opacity: 0; }
 }
 
-.s4{
-  animation-duration: 15s;
-  animation-direction: reverse;
+/* “чередуют” — разный сдвиг по времени для каждой лапки */
+.pawline__inner .paw-swap:nth-child(2)  .paw-layer{ animation-delay: .3s; }
+.pawline__inner .paw-swap:nth-child(3)  .paw-layer{ animation-delay: .6s; }
+.pawline__inner .paw-swap:nth-child(4)  .paw-layer{ animation-delay: .9s; }
+.pawline__inner .paw-swap:nth-child(5)  .paw-layer{ animation-delay: 1.2s; }
+.pawline__inner .paw-swap:nth-child(6)  .paw-layer{ animation-delay: 1.5s; }
+.pawline__inner .paw-swap:nth-child(7)  .paw-layer{ animation-delay: 1.8s; }
+.pawline__inner .paw-swap:nth-child(8)  .paw-layer{ animation-delay: 2.1s; }
+.pawline__inner .paw-swap:nth-child(9)  .paw-layer{ animation-delay: 2.4s; }
+.pawline__inner .paw-swap:nth-child(10) .paw-layer{ animation-delay: 2.7s; }
+.pawline__inner .paw-swap:nth-child(11) .paw-layer{ animation-delay: 3.0s; }
+.pawline__inner .paw-swap:nth-child(12) .paw-layer{ animation-delay: 3.3s; }
+
+/* стоп при наведении на всю линию */
+.pawline__inner:hover .paw-layer{
+  animation-play-state: paused;
 }
+

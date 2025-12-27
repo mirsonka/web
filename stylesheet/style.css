@@ -63,6 +63,7 @@ body{
 .l3{ left:54.33vw; top:3.59vw; }
 .l4{ left:71.32vw; top:1.56vw; }
 
+
 .ticker{
   width: 100%;
   height: 4.0625vw;
@@ -125,9 +126,11 @@ body{
   bottom: 0;
   transform: translateX(-50%);
   z-index: 4;
-
-  width: clamp(240px, 63.5%, 820px); 
+  width: clamp(240px, 63.5%, 820px);
 }
+
+.cats-wrap{
+  aspect-ratio: 1280 / 720; }
 
 .cats{
   position: absolute;
@@ -263,12 +266,14 @@ body{
 .fish{
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 13%;
   transform: translateY(-50%);
-  width: 72%;
+  width: 80%;
   height: auto;
   z-index: 3;
 }
+.fish-1{ opacity: 1; }
+.fish-2{ opacity: 0; }
 
 .fish-star{
   position: absolute;
@@ -385,15 +390,15 @@ body{
 
 .final-block{
   width: 100%;
-  height: clamp(70px, 13.515625vw, 173px);
-  background:#F5BF60;
-  overflow:hidden;
+  background: #F5BF60;
+  overflow: hidden;
+  margin: 0;
 }
 
 .final-block__img{
+  display: block;
   width: 100%;
   height: 100%;
-  display:block;
-  object-fit: contain;
-  object-position:center;
+  object-fit: cover;     
+  object-position: center;
 }

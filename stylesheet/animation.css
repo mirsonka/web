@@ -210,24 +210,34 @@
 @keyframes catsSwap{
   0%{ opacity: 1; }
   49%{ opacity: 1; }
-  50%{ opacity: 0; }
-  100%{ opacity: 0; }
+  50%{ opacity: 1; }
+  100%{ opacity: 1; }
 }
 
-/* =========================
-   ZIGZAG hover swap (mobile)
-   ========================= */
 
-/* hover на десктопе (если откроют моб.версию в браузере) */
 .zigzag-mobile:hover .z1{ opacity: 0; }
 .zigzag-mobile:hover .z2{ opacity: 1; }
 
-/* плавность */
 .zigzag-mobile .zigzag{
   transition: opacity 180ms ease;
 }
 
-/* тап на телефоне: добавь класс .is-active через JS (по желанию) */
+
 .zigzag-mobile.is-active .z1{ opacity: 0; }
 .zigzag-mobile.is-active .z2{ opacity: 1; }
 
+.fish-1{
+  animation: fishSwap 2s steps(1) infinite;
+}
+
+.fish-2{
+  animation: fishSwap 2s steps(1) infinite;
+  animation-delay: 1s;
+}
+
+@keyframes fishSwap{
+  0%   { opacity: 1; }
+  50%  { opacity: 1; }
+  50.01% { opacity: 0; }
+  100% { opacity: 0; }
+}

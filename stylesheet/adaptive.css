@@ -263,46 +263,89 @@ body{
 }
 
 
-@media (max-width:480px){
+@media (max-width: 480px){
 
   .screen1{
-    height:auto;
-    aspect-ratio:1280 / 433;
-    overflow:hidden;
+    height: auto;
+    aspect-ratio: 1280 / 433;
+    overflow: hidden;
   }
 
-  .paw{ width:10vw; }
+  .paw{ width: 10vw; }
 
   .murr{
-    transform:scale(90%);
-    transform-origin:top center;
-    left:0vw;
+    transform: scale(0.9);          /* было scale(90%) */
+    transform-origin: top center;
   }
 
-  .letter{ height:30vw; }
+  .letter{ height: 30vw; }
 
-  .ticker{ height:12vw; }
-  .ticker__content{ font-size:10vw; }
-  .space{ width:2vw; }
-  .paw-sep{ width:7vw; margin:0 2.2vw; }
+  .ticker{ height: 12vw; }
+  .ticker__content{ font-size: 10vw; }
+  .space{ width: 2vw; }
+  .paw-sep{ width: 7vw; margin: 0 2.2vw; }
 
   .screen2{
-    height:auto;
-    flex-direction:column;
+    display: flex;                  /* на всякий */
+    height: auto;
+    flex-direction: column;
   }
 
   .box-black{
-    width:100%;
-    aspect-ratio:1280 / 635;
+    width: 100%;
+    aspect-ratio: 1280 / 635;
   }
 
- 
   .cats-wrap{
-    width:62%;
-    transform:translateX(-50%) scale(1);
+    width: 62%;
+    left: 50%;                      /* ключевое */
+    transform: translateX(-50%) scale(1);
   }
 
-  .box-pattern{ display:none!important; }
-  .zigzag-mobile{ display:none!important; }
+  .box-pattern{ display: none !important; }
+  .zigzag-mobile{ display: none !important; }
+}
+@media (max-width: 480px){
+  .murr{
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .letter{ height: 30vw; }
+
+  .cats-wrap{
+    width: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px){
+  .murr{
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .letter{ height: 30vw; }
+
+  .cats-wrap{
+    width: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width:480px){
+  body{ outline:6px solid red; }
+}
+.final-block{
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px){
+  .final-block{
+    height: 75px;          /* как в Figma */
+    min-height: 75px;
+    padding-bottom: 0;    /* важно */
+  }
 }
 

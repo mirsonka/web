@@ -121,13 +121,12 @@ body{
 
 .cats-wrap{
   position: absolute;
-  width: 63.5%;
-  left: 25.27%;
+  left: 50%;
   bottom: 0;
+  transform: translateX(-50%);
   z-index: 4;
-  aspect-ratio: 1280 / 720;
-  transform: scale(1.4);
-  transform-origin: center bottom;
+
+  width: clamp(240px, 63.5%, 820px); 
 }
 
 .cats{

@@ -1,203 +1,308 @@
-/* =========================================
-   ADAPTIVE
-   320 (mobile) + 768 (tablet)
-   (с начала и до блока с котами / screen2)
-   ========================================= */
+*{ box-sizing:border-box; }
+
+html,body{
+  overflow-x:hidden;
+  overflow-y:visible;
+}
+
+body{
+  margin:0;
+  background:#F5BF60;
+}
+
+.poster{ width:100%; }
 
 
-/* =========================
-   TABLET ≤ 768px
-   ========================= */
-@media (max-width: 768px){
+.screen1{
+  width:100vw;
+  height:33.8453125vw;
+  position:relative;
+  overflow:visible;
+  z-index:2;
+}
 
-  /* общий контейнер */
-  .poster{
-    width: 100%;
-  }
+.paws{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
 
-  /* ---------- SCREEN 1 ---------- */
-  .screen1{
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 433;   /* твой десктопный экран1 */
-    overflow: hidden;
-  }
+.paw{
+  position:absolute;
+  width:6vw;
+  opacity:.95;
+}
 
-  .paw{
-    width: 7.5vw;
-  }
+.p1{ left:-1.439vw; top:3.849vw; }
+.p2{ left:4.365vw;  top:22.977vw; }
+.p3{ left:19.66vw;  top:.981vw; }
+.p4{ left:36.316vw; top:27.13vw; }
+.p5{ left:42.38vw;  top:-1.017vw; }
+.p6{ left:61.338vw; top:15.658vw; }
+.p7{ left:85.481vw; top:5.137vw; }
+.p8{ left:87.502vw; top:25.629vw; }
 
-  .letter{
-    height: 28vw;
-  }
+.murr{
+  position:relative;
+  width:100%;
+  height:100%;
+  z-index:6;
+}
 
-  /* ---------- TICKER ---------- */
-  .ticker{
-    width: 100%;
-    height: 7vw;
-  }
+.letter{
+  position:absolute;
+  height:25.2vw;
+  transform-origin:center;
+}
 
-  .ticker__content{
-    font-size: 6.2vw;
-  }
+.l1{ left:9.06vw; top:3.18vw; }
+.l2{ left:28.84vw; top:3.56vw; }
+.l3{ left:54.33vw; top:3.59vw; }
+.l4{ left:71.32vw; top:1.56vw; }
 
-  .space{
-    width: 1.2vw;
-  }
 
-  .paw-sep{
-    width: 4.2vw;
-    margin: 0 1.4vw;
-  }
+.ticker{
+  width:100%;
+  height:4.0625vw;
+  background:#fff;
+  overflow:hidden;
+  position:relative;
+  z-index:3;
+}
 
-  /* ---------- SCREEN 2 ---------- */
-  .screen2{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.ticker__track{
+  height:100%;
+  display:flex;
+  align-items:center;
+  width:max-content;
+}
 
-  /* коты — на всю ширину */
-  .box-black{
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 635;   /* подгони если нужно */
-    position: relative;
-    overflow: hidden;
-  }
+.ticker__content{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  flex:0 0 auto;
+  font-family:Pangolin,sans-serif;
+  font-size:4.53125vw;
+  line-height:1;
+}
 
-  /* звезды оставляем как есть (проценты уже норм) */
-  /* дискоболл чуть ниже/меньше, чтобы не улетал */
-  .discoball{
-    width: 26%;
-    top: 2.5vw;
-  }
+.ticker .c1{ color:#9A6EB2; }
+.ticker .c2{ color:#F5BF60; }
 
-  /* котов делаем чуть крупнее (если ты уже увеличивала — можно убрать) */
-  .cats-wrap{
-    width: calc(63.5% * 1.15);
-    left: calc(18.27% - 6%);
-  }
+.space{ width:.6vw; display:inline-block; }
 
-  /* правый паттерн на планшете можно оставить как отдельный блок снизу */
-  .box-pattern{
-    position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 260;   /* подгони */
-    right: auto;
-    top: auto;
-    overflow: hidden;
-  }
-
-  .pattern{
-    object-fit: cover;
-  }
+.paw-sep{
+  width:3vw;
+  margin:0 .9vw;
+  height:auto;
+  display:inline-block;
+  vertical-align:middle;
 }
 
 
-/* =========================
-   MOBILE ≤ 480px (в т.ч. 320)
-   ========================= */
-@media (max-width: 480px){
-
-  /* ---------- SCREEN 1 ---------- */
-  .screen1{
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 433;
-    overflow: hidden;
-  }
-
-  /* лапки чуть крупнее, но без вылета */
-  .paw{
-    width: 10vw;
-  }
-
-  /* буквы уменьшаем */
-  .letter{
-    height: 36vw;
-  }
-
-  /* ---------- TICKER ---------- */
-  .ticker{
-    width: 100%;
-    height: 12vw;
-  }
-
-  .ticker__content{
-    font-size: 10vw;
-  }
-
-  .space{
-    width: 2vw;                 /* вот это и даёт пробелы */
-  }
-
-  .paw-sep{
-    width: 7vw;
-    margin: 0 2.2vw;
-  }
-
-  /* ---------- SCREEN 2 (КОТЫ + ЗИГЗАГИ СНИЗУ) ---------- */
-  .screen2{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ЧЁРНЫЙ БЛОК С КОТАМИ — первым */
-  .box-black{
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 635;   /* подгони если надо */
-    position: relative;
-    overflow: hidden;
-    order: 1;
-  }
-
-  /* коты + смена картинок (контейнер не должен схлопываться) */
-  .cats-wrap{
-    width: calc(63.5% * 1.2);   /* твои 1.2 раза больше */
-    left: calc(18.27% - 6%);
-    bottom: 0;
-  }
-
-  /* дискоболл, чтобы не улетал */
-  .discoball{
-    width: 30%;
-    top: 3vw;
-  }
-
-  /* ПРАВЫЙ ПАТТЕРН ИЗ ДЕСКТОПА — прячем */
-  .box-pattern{
-    display: none;
-  }
-
-  /* НОВЫЕ ЗИГЗАГИ — вторым блоком и В ПОТОКЕ (не absolute!) */
-  .zigzag-mobile{
-    position: relative;         /* ключевое */
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 260;   /* подгони под свои z1/z2 */
-    overflow: hidden;
-    background: #F5BF60;
-    order: 2;
-  }
-
-  .zigzag-mobile .zigzag{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .zigzag-mobile .z1{ opacity: 1; }
-  .zigzag-mobile .z2{ opacity: 0; }
+.screen2{
+  width:100%;
+  height:49.609375vw;
+  display:flex;
+  position:relative;
 }
+
+.box-black{
+  width:74.6875vw;
+  background:#000;
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+}
+
+.discoball{
+  position:absolute;
+  width:28%;
+  left:50%;
+  top:30px;
+  transform:translateX(-50%);
+  z-index:5;
+}
+
+.box-black .star-wrap{
+  position:absolute;
+  z-index:2;
+  aspect-ratio:217.76 / 211.3;
+}
+
+.box-black .star-wrap.s1{ left:-6.88%; top:58.89%; width:20.5%; }
+.box-black .star-wrap.s2{ left:1.23%; top:.70%; width:22.78%; }
+.box-black .star-wrap.s3{ left:72.69%; top:6.10%; width:22.78%; }
+.box-black .star-wrap.s4{ left:80.50%; top:65.87%; width:19.20%; }
+
+.star{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  transition:opacity .2s ease;
+}
+
+.star-base{ opacity:1; }
+.star-hover{ opacity:0; }
+
+.star-wrap:hover .star-base{ opacity:0; }
+.star-wrap:hover .star-hover{ opacity:1; }
+
+
+.cats-wrap{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%) scale(1.2);
+  transform-origin:center bottom;
+  z-index:4;
+  width:63.5%;
+}
+
+.cats{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.cats-1{ opacity:1; }
+.cats-2{ opacity:0; }
+
+
+.box-pattern{
+  position:absolute;
+  right:0;
+  top:0;
+  width:25.3125vw;
+  height:100%;
+  overflow:hidden;
+  z-index:10;
+}
+
+.pattern{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity .2s ease;
+}
+
+.ptn1{ opacity:1; }
+.ptn2{ opacity:0; }
+
+.box-pattern:hover .ptn1{ opacity:0; }
+.box-pattern:hover .ptn2{ opacity:1; }
+
+
+.cats-1{ animation:catsSwap 1s steps(1,end) infinite; }
+.cats-2{ animation:catsSwap 1s steps(1,end) infinite; animation-delay:.5s; }
+
+@keyframes catsSwap{
+  0%,49.999%{ opacity:1; }
+  50%,100%{ opacity:0; }
+}
+
+
+@media (max-width:768px){
+
+  .screen1{
+    height:auto;
+    aspect-ratio:1280 / 433;
+    overflow:hidden;
+  }
+
+  .paw{ width:7.5vw; }
+
+  .murr{
+    transform:scale(.95);
+    transform-origin:top center;
+  }
+
+  .letter{ height:28vw; }
+
+  .ticker{ height:7vw; }
+  .ticker__content{ font-size:6.2vw; }
+  .space{ width:1.2vw; }
+  .paw-sep{ width:4.2vw; margin:0 1.4vw; }
+
+  .screen2{
+    height:auto;
+    flex-direction:column;
+  }
+
+  .box-black{
+    width:100%;
+    aspect-ratio:1280 / 635;
+  }
+
+  .discoball{
+    width:26%;
+    top:2.5vw;
+  }
+
+  .cats-wrap{
+    width:56%;
+    transform:translateX(-50%) scale(1);
+  }
+
+ .cats-wrap{
+    width:62%;
+    transform:translateX(-50%) scale(1);
+  }
+
+  .box-pattern{ display:none!important; }
+  .zigzag-mobile{ display:none!important; }
+}
+
+
+@media (max-width:480px){
+
+  .screen1{
+    height:auto;
+    aspect-ratio:1280 / 433;
+    overflow:hidden;
+  }
+
+  .paw{ width:10vw; }
+
+  .murr{
+    transform:scale(90%);
+    transform-origin:top center;
+    left:0vw;
+  }
+
+  .letter{ height:30vw; }
+
+  .ticker{ height:12vw; }
+  .ticker__content{ font-size:10vw; }
+  .space{ width:2vw; }
+  .paw-sep{ width:7vw; margin:0 2.2vw; }
+
+  .screen2{
+    height:auto;
+    flex-direction:column;
+  }
+
+  .box-black{
+    width:100%;
+    aspect-ratio:1280 / 635;
+  }
+
+ 
+  .cats-wrap{
+    width:62%;
+    transform:translateX(-50%) scale(1);
+  }
+
+  .box-pattern{ display:none!important; }
+  .zigzag-mobile{ display:none!important; }
+}
+

@@ -274,7 +274,7 @@ body{
   .paw{ width: 10vw; }
 
   .murr{
-    transform: scale(0.9);          /* было scale(90%) */
+    transform: scale(0.9);         
     transform-origin: top center;
   }
 
@@ -286,7 +286,7 @@ body{
   .paw-sep{ width: 7vw; margin: 0 2.2vw; }
 
   .screen2{
-    display: flex;                  /* на всякий */
+    display: flex;                  /* мб и не надо */
     height: auto;
     flex-direction: column;
   }
@@ -298,7 +298,7 @@ body{
 
   .cats-wrap{
     width: 62%;
-    left: 50%;                      /* ключевое */
+    left: 50%;                     
     transform: translateX(-50%) scale(1);
   }
 
@@ -343,9 +343,9 @@ body{
 
 @media (max-width: 480px){
   .final-block{
-    height: 75px;          /* как в Figma */
+    height: 75px;         
     min-height: 75px;
-    padding-bottom: 0;    /* важно */
+    padding-bottom: 0;    
   }
 }
 

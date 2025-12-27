@@ -1,17 +1,203 @@
-/* ------ MOBILE 420 ------*/
-@media (max-width: 420px) {
-  .container {
-    flex-direction: column;
+/* =========================================
+   ADAPTIVE
+   320 (mobile) + 768 (tablet)
+   (с начала и до блока с котами / screen2)
+   ========================================= */
+
+
+/* =========================
+   TABLET ≤ 768px
+   ========================= */
+@media (max-width: 768px){
+
+  /* общий контейнер */
+  .poster{
+    width: 100%;
+  }
+
+  /* ---------- SCREEN 1 ---------- */
+  .screen1{
+    width: 100%;
     height: auto;
-    min-height: 100vh;
-    padding: 4vw 5vw 0; 
-    gap: 8vw;
+    aspect-ratio: 1280 / 433;   /* твой десктопный экран1 */
+    overflow: hidden;
+  }
+
+  .paw{
+    width: 7.5vw;
+  }
+
+  .letter{
+    height: 28vw;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    width: 100%;
+    height: 7vw;
+  }
+
+  .ticker__content{
+    font-size: 6.2vw;
+  }
+
+  .space{
+    width: 1.2vw;
+  }
+
+  .paw-sep{
+    width: 4.2vw;
+    margin: 0 1.4vw;
+  }
+
+  /* ---------- SCREEN 2 ---------- */
+  .screen2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* коты — на всю ширину */
+  .box-black{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 635;   /* подгони если нужно */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* звезды оставляем как есть (проценты уже норм) */
+  /* дискоболл чуть ниже/меньше, чтобы не улетал */
+  .discoball{
+    width: 26%;
+    top: 2.5vw;
+  }
+
+  /* котов делаем чуть крупнее (если ты уже увеличивала — можно убрать) */
+  .cats-wrap{
+    width: calc(63.5% * 1.15);
+    left: calc(18.27% - 6%);
+  }
+
+  /* правый паттерн на планшете можно оставить как отдельный блок снизу */
+  .box-pattern{
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 260;   /* подгони */
+    right: auto;
+    top: auto;
+    overflow: hidden;
+  }
+
+  .pattern{
+    object-fit: cover;
   }
 }
 
-/* ------ SMALL MOBILE 360 ------*/
-@media (max-width: 360px) {
-  .container {
-    padding: 4vh 0;
+
+/* =========================
+   MOBILE ≤ 480px (в т.ч. 320)
+   ========================= */
+@media (max-width: 480px){
+
+  /* ---------- SCREEN 1 ---------- */
+  .screen1{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 433;
+    overflow: hidden;
   }
+
+  /* лапки чуть крупнее, но без вылета */
+  .paw{
+    width: 10vw;
+  }
+
+  /* буквы уменьшаем */
+  .letter{
+    height: 36vw;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    width: 100%;
+    height: 12vw;
+  }
+
+  .ticker__content{
+    font-size: 10vw;
+  }
+
+  .space{
+    width: 2vw;                 /* вот это и даёт пробелы */
+  }
+
+  .paw-sep{
+    width: 7vw;
+    margin: 0 2.2vw;
+  }
+
+  /* ---------- SCREEN 2 (КОТЫ + ЗИГЗАГИ СНИЗУ) ---------- */
+  .screen2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ЧЁРНЫЙ БЛОК С КОТАМИ — первым */
+  .box-black{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 635;   /* подгони если надо */
+    position: relative;
+    overflow: hidden;
+    order: 1;
+  }
+
+  /* коты + смена картинок (контейнер не должен схлопываться) */
+  .cats-wrap{
+    width: calc(63.5% * 1.2);   /* твои 1.2 раза больше */
+    left: calc(18.27% - 6%);
+    bottom: 0;
+  }
+
+  /* дискоболл, чтобы не улетал */
+  .discoball{
+    width: 30%;
+    top: 3vw;
+  }
+
+  /* ПРАВЫЙ ПАТТЕРН ИЗ ДЕСКТОПА — прячем */
+  .box-pattern{
+    display: none;
+  }
+
+  /* НОВЫЕ ЗИГЗАГИ — вторым блоком и В ПОТОКЕ (не absolute!) */
+  .zigzag-mobile{
+    position: relative;         /* ключевое */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 260;   /* подгони под свои z1/z2 */
+    overflow: hidden;
+    background: #F5BF60;
+    order: 2;
+  }
+
+  .zigzag-mobile .zigzag{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .zigzag-mobile .z1{ opacity: 1; }
+  .zigzag-mobile .z2{ opacity: 0; }
 }
